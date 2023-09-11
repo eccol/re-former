@@ -1,13 +1,13 @@
 <h1>New User</h1>
 
-<%= form_tag("/users", method: "post") do %>
-  <%= label_tag(:username, "Username:") %>
-  <%= text_field_tag(:username) %>
-  <%= label_tag(:email, "Email:") %>
-  <%= email_field_tag(:email) %>
-  <%= label_tag(:password, "Password:") %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag("Register") %>
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username %>
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <%= form.submit "Register" %>
 <% end %>
 
 <!-- Odin says to keep this form as a comment
@@ -21,4 +21,16 @@
   <input type="password" id="password" name="user[password]">
   <input type="submit" value="Register">
 </form>
+-->
+
+<!-- Odin says to keep this one also
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "Username:") %>
+  <%= text_field_tag(:username) %>
+  <%= label_tag(:email, "Email:") %>
+  <%= email_field_tag(:email) %>
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password) %>
+  <%= submit_tag("Register") %>
+<% end %>
 -->
